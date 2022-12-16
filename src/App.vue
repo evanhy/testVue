@@ -3,14 +3,15 @@
 </script>
 
 <template>
+    <h1>I am a Vue 3 + TS learning program.</h1>
+    <h2>Welcome to join and complete this project with resumes.</h2>
+    <h3>尝试自己搭架子</h3>
+    <h3>没有接口数据，所以学习mock数据</h3>
     <img alt="Vue logo" src="./assets/logo.png">
 </template>
 
 <style>
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
