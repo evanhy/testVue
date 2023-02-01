@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 
 </script>
 
@@ -18,3 +18,7 @@
     margin-top: 60px;
 }
 </style>
+ -->
+ <template>
+    
+ </template>
