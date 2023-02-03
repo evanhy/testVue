@@ -53,6 +53,9 @@ const remainderMonthDay = computed(() => {
 const remainderWeekDay = computed(() => {
     return 7 - new Date().getDay();
 })
+const countdownWeekend = computed(() => {
+    return 6 - new Date().getDay();
+})
 onMounted(() => {
     nowTime.value = new Date().toLocaleString();
     timer.value = setInterval(() => {
@@ -68,7 +71,9 @@ onUnmounted(() => {
 
 <template>
     <div class="count-down">
-        <div>当前时间为:{{ nowTime }}</div>
+        <div class="current-time">{{ nowTime }}</div>
+        <br>
+        <div>距离周末还有:{{ countdownWeekend }}天</div>
         <div>今天剩余的时间为:{{
                 24 - (new Date().getHours() + 1)
             }}时{{ 60 - new Date().getMinutes() }}分{{ 60 - new Date().getSeconds() }}秒
@@ -85,5 +90,11 @@ onUnmounted(() => {
     text-align: center;
     font-size: 24px;
     color: #9d9696;
+
+    .current-time {
+        //width: 600px;
+        //background: pink;
+        color: white;
+    }
 }
 </style>
