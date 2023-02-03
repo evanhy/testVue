@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import ToDo from "./components/ToDo.vue";
-</script>
+import CountDown from "@components/CountDown.vue";</script>
 
 <template>
-  <div>
-    <to-do></to-do>
-  </div>
+    <div>
+        <count-down></count-down>
+    </div>
 </template>
 
 <style scoped>
