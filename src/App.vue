@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import CountDown from "@components/CountDown.vue";
-import MyClock from "@components/MyClock.vue";</script>
+// import NewClock from '@/components/Clock/index.vue'
+</script>
 
 <template>
     <div id="app">
-        <my-clock></my-clock>
-        <count-down></count-down>
+        <!-- <new-clock></new-clock> -->
+        <router-view></router-view>
     </div>
 </template>
 

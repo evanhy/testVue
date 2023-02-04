@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {computed, onMounted, onUnmounted, ref} from "vue";
+import {defineOptions} from "unplugin-vue-define-options/macros";
 
 defineOptions({
     name: 'ToDo',

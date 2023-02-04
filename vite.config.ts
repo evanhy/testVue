@@ -1,30 +1,104 @@
-import {defineConfig} from 'vite'
-import DefineOptions from 'unplugin-vue-define-options/vite'
 import vue from '@vitejs/plugin-vue'
-import path from 'path'
-
-
+import { resolve } from 'path'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import defineOptions from 'unplugin-vue-define-options/dist/vite'
+import type { ConfigEnv } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 // https://vitejs.dev/config/
-export default defineConfig({
-    plugins: [vue(), DefineOptions()],
-    // 别名配置
+export default defineConfig(({ mode }: ConfigEnv) => {
+    const env = loadEnv(mode, process.cwd())
+    return {
+        base: './',
+        resolve: {
+            alias: {
+                '@': resolve(__dirname, './src'),
+            },
+            extensions: ['.js', '.json', '.ts', '.vue'], // 使用路径别名时想要省略的后缀名，可以自己 增减
+        },
+
+        /* more config */
+        plugins: [
+            vue(),
+            defineOptions(),
+            AutoImport({
+                resolvers: [],
+                // 自定引入 Vue VueRouter API,如果还需要其他的可以自行引入
+                imports: ['vue', 'vue-router'],
+                // 调整自动引入的文件位置
+                dts: 'src/type/auto-import.d.ts',
+                // 解决自动引入eslint报错问题 需要在eslintrc的extend选项中引入
+                eslintrc: {
+                    enabled: true,
+                    // 配置文件的位置
+                    filepath: './.eslintrc-auto-import.json',
+                    globalsPropValue: true,
+                },
+            }),
+            Components({
+                resolvers: [
+                    // 需要自动导入的组件
+                ],
+                dts: 'src/type/components.d.ts',
+            }),
+        ],
+        server: {
+            // 是否开启 https
+            https: false,
+            // 端口号
+            port: 3000,
+            // 监听所有地址
+            host: '0.0.0.0',
+            // 服务启动时是否自动打开浏览器
+            open: true,
+            // 允许跨域
+            cors: true,
+            // 自定义代理规则
+            proxy: {},
+        },
+        build: {
+            // 设置最终构建的浏览器兼容目标
+            target: 'es2015',
+            // 构建后是否生成 source map 文件
+            sourcemap: false,
+            //  chunk 大小警告的限制（以 kbs 为单位）
+            chunkSizeWarningLimit: 2000,
+            // 启用/禁用 gzip 压缩大小报告
+            reportCompressedSize: false,
+        },
+    }
+})
+/* export default defineConfig({
+    base: './',
+    plugins: [vue(), defineOptions()],
     resolve: {
         alias: {
-            // 键必须以斜线开始和结束
-            '@': path.resolve(__dirname, './src'),
-            "@assets": path.resolve(__dirname, "./src/assets"),
-            "@common": path.resolve(__dirname, "./src/common"),
-            "@interface": path.resolve(__dirname, "./src/interface"),
-            "@plugins": path.resolve(__dirname, "./src/plugins"),
-            "@utils": path.resolve(__dirname, "./src/utils"),
-            "@components": path.resolve(__dirname, "./src/components"),
-            "@styles": path.resolve(__dirname, "./src/styles"),
-            "@store": path.resolve(__dirname, "./src/store"),
-            "@views": path.resolve(__dirname, "./src/views"),
+            '@': resolve(__dirname, './src'),
         },
     },
-    server: {// 环境配置
-        port: 9090,
-        open: true, //配置自动启动浏览器
+    server: {
+        // 是否开启 https
+        https: false,
+        // 端口号
+        port: 3000,
+        // 监听所有地址
+        host: '0.0.0.0',
+        // 服务启动时是否自动打开浏览器
+        open: true,
+        // 允许跨域
+        cors: true,
+        // 自定义代理规则
+        proxy: {},
+    },
+    build: {
+        // 设置最终构建的浏览器兼容目标
+        target: 'es2015',
+        // 构建后是否生成 source map 文件
+        sourcemap: false,
+        //  chunk 大小警告的限制（以 kbs 为单位）
+        chunkSizeWarningLimit: 2000,
+        // 启用/禁用 gzip 压缩大小报告
+        reportCompressedSize: false,
     },
 })
+ */
