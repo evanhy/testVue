@@ -20,8 +20,12 @@ const goBack = () => {
 </template>
 
 <style lang="scss" scoped>
-.go-back {
-    color: white;
-    background: #8287e0;
+.Clock {
+    background: #050842;
+    text-align: center;
+    .go-back {
+        color: white;
+        background: #8287e0;
+    }
 }
 </style>

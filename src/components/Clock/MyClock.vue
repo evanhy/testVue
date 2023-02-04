@@ -239,6 +239,7 @@ export default {
     width: 400px;
     height: 400px;
     position: relative;
+    margin: 0 auto;
 }
 
 .jhc-clock-back {

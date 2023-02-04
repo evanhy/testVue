@@ -1,21 +1,21 @@
-const clock = () => import('@/components/Clock/index.vue')
-const home = () => import('@/views/homes/HomePage.vue')
-const Page404 = () => import('@/views/common/404Page.vue')
 export default [
     { path: '/', redirect: '/home' },
     {
         path: '/home',
         name: 'home',
-        component: home,
+        component: () => import('@/views/homes/HomePage.vue'),
+        meta: {
+            title: '首页',
+        },
     },
     {
         path: '/clock',
         name: 'clock',
-        component: clock,
+        component: () => import('@/components/Clock/index.vue'),
     },
     {
         path: '/:catchAll(.*)',
         name: '404',
-        component: Page404,
+        component: () => import('@/views/common/404Page.vue'),
     },
 ]

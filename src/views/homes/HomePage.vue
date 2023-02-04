@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useUserStore } from '@/store/user'
+import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+
 defineOptions({
     name: 'HomePage',
 })
@@ -7,20 +10,34 @@ const router = useRouter()
 const goClock = () => {
     router.push('/clock')
 }
+const goVueUse = () => {
+    router.push('/vueuse')
+}
+const userStore = useUserStore()
+const editName = () => {
+    userStore.updateName('userName')
+}
+onMounted(() => {
+    console.log(import.meta.env)
+})
 </script>
 
 <template>
-    <div>
-        <h3 style="color: white">HomePage</h3>
-        <button class="clock" @click="goClock">时钟</button>
+    <div class="home-page">
+        <h1>HomePage</h1>
+        <hr />
+        <el-button type="primary" @click="goClock">查看时钟</el-button>
+        <h3>{{ userStore.name }} Test > Pinia数据持久化</h3>
+        <el-button type="info" @click="editName">修改</el-button>
+        <p></p>
+        <el-button type="info" @click="goVueUse">查看VueUse</el-button>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.clock {
-    font-weight: 700;
-    &:hover {
-        background: pink;
-    }
+.home-page {
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 </style>
