@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router';
 
 defineOptions({
     name: 'VueUse',
@@ -14,14 +14,29 @@ const goBack = () => {
 }
 const useList = [
     {
-        name: 'vueMouse',
+        name: 'useMouse',
         routerPath: '/vueuse/useMouse',
         link: 'https://vueuse.org/core/useMouse/',
     },
     {
-        name: 'vueDraggable',
+        name: 'useDraggable',
         routerPath: '/vueuse/useDraggable',
         link: 'https://vueuse.org/core/useDraggable/',
+    },
+    {
+        name: 'onClickOutside',
+        routerPath: '/vueuse/onClickOutside',
+        link: 'https://vueuse.org/core/onClickOutside/',
+    },
+    {
+        name: 'useFocusTrap',
+        routerPath: '/vueuse/useFocusTrap',
+        link: 'https://vueuse.org/integrations/useFocusTrap/',
+    },
+    {
+        name: 'useStorage',
+        routerPath: '/vueuse/useStorage',
+        link: 'https://vueuse.org/core/useStorage/',
     },
 ]
 let docLink = ref('https://vueuse.org/')
