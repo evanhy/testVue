@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useUserStore } from '@/store/user'
-import { onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useUserStore } from '@/store/user';
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 defineOptions({
     name: 'HomePage',
@@ -24,6 +24,10 @@ onMounted(() => {
 
 <template>
     <div class="home-page">
+        <img class="logo"
+            src="https://img2.baidu.com/it/u=1629479163,3719818209&fm=253&fmt=auto&app=138&f=JPEG?w=473&h=399"
+            alt=""
+        />
         <h1>HomePage</h1>
         <hr />
         <el-button type="primary" @click="goClock">查看时钟</el-button>
@@ -39,5 +43,9 @@ onMounted(() => {
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
+    .logo {
+        width: 300px;
+        height: 250px;
+    }
 }
 </style>
