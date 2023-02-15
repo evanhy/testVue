@@ -1,6 +1,7 @@
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import defineOptions from 'unplugin-vue-define-options/dist/vite'
 import type { ConfigEnv } from 'vite'
@@ -38,6 +39,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
             Components({
                 resolvers: [
                     // 需要自动导入的组件
+                    ElementPlusResolver()
                 ],
                 dts: 'src/type/components.d.ts',
             }),
