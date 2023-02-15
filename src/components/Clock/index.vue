@@ -2,7 +2,6 @@
 import CountDown from '@/components/Clock/CountDown.vue'
 import MyClock from '@/components/Clock/MyClock.vue'
 import { defineOptions } from 'unplugin-vue-define-options/macros'
-import { useRouter } from 'vue-router'
 defineOptions({
     name: 'NewClock',
 })

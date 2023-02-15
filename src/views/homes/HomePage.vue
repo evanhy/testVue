@@ -13,6 +13,10 @@ const goClock = () => {
 const goVueUse = () => {
     router.push('/vueuse')
 }
+const goEcharts = () => {
+    router.push('/echarts')
+
+}
 const userStore = useUserStore()
 const editName = () => {
     userStore.updateName('userName')
@@ -35,6 +39,7 @@ onMounted(() => {
         <el-button type="info" @click="editName">修改</el-button>
         <p></p>
         <el-button type="info" @click="goVueUse">查看VueUse</el-button>
+        <el-button type="info" @click="goEcharts">查看Echarts</el-button>
     </div>
 </template>
 
