@@ -267,3 +267,11 @@ export default defineConfig({
 > Pinia持久化插件
 >
 > 详情看: https://github.com/pan52yu/MyNote/blob/main/article/Vue3%E5%AD%A6%E4%B9%A0/Pinia.md
+
+
+
+
+
+#### 说明
+
++ 该项目技术栈为 Vue3 + TS + Pinia + Vue Router
