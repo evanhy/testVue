@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useUserStore } from '@/store/user';
-import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import {useUserStore} from '@/store/user';
+import {onMounted} from 'vue';
+import {useRouter} from 'vue-router';
+import {login} from "@/api/login";
 
 defineOptions({
     name: 'HomePage',
@@ -11,8 +12,13 @@ const goComponent = (url: string) => {
     router.push(`/${url}`)
 }
 const userStore = useUserStore()
-const editName = () => {
+const editName = async () => {
     userStore.updateName('userName')
+    const res = await login({
+        account: 'userName',
+        password: 'userPassword'
+    })
+    console.log("🚀 ~ file:HomePage line:21 >>>", res)
 }
 onMounted(() => {
     console.log(import.meta.env)
