@@ -10,6 +10,8 @@ declare module '@vue/runtime-core' {
     Clock: typeof import('./../components/Clock/index.vue')['default']
     CountDown: typeof import('./../components/Clock/CountDown.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElDivider: typeof import('element-plus/es')['ElDivider']
+    ElInput: typeof import('element-plus/es')['ElInput']
     MyClock: typeof import('./../components/Clock/MyClock.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

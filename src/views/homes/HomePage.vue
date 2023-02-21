@@ -7,15 +7,8 @@ defineOptions({
     name: 'HomePage',
 })
 const router = useRouter()
-const goClock = () => {
-    router.push('/clock')
-}
-const goVueUse = () => {
-    router.push('/vueuse')
-}
-const goEcharts = () => {
-    router.push('/echarts')
-
+const goComponent = (url: string) => {
+    router.push(`/${url}`)
 }
 const userStore = useUserStore()
 const editName = () => {
@@ -28,18 +21,23 @@ onMounted(() => {
 
 <template>
     <div class="home-page">
-        <img class="logo"
+        <img
+            class="logo"
             src="https://img2.baidu.com/it/u=1629479163,3719818209&fm=253&fmt=auto&app=138&f=JPEG?w=473&h=399"
             alt=""
         />
-        <h1>HomePage</h1>
-        <hr />
-        <el-button type="primary" @click="goClock">查看时钟</el-button>
+        <h1>首页</h1>
+        <el-divider></el-divider>
+        <el-button type="primary" @click="goComponent('clock')">查看时钟</el-button>
+        <el-divider></el-divider>
         <h3>{{ userStore.name }} Test > Pinia数据持久化</h3>
         <el-button type="info" @click="editName">修改</el-button>
-        <p></p>
-        <el-button type="info" @click="goVueUse">查看VueUse</el-button>
-        <el-button type="info" @click="goEcharts">查看Echarts</el-button>
+        <el-divider></el-divider>
+        <el-button type="info" @click="goComponent('vueuse')">查看VueUse</el-button>
+        <el-divider direction="vertical"></el-divider>
+        <el-button type="info" @click="goComponent('echarts')">查看Echarts</el-button>
+        <el-divider direction="vertical"></el-divider>
+        <el-button type="info" @click="goComponent('proTable')">查看ProTable</el-button>
     </div>
 </template>
 

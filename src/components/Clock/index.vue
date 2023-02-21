@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import CountDown from '@/components/Clock/CountDown.vue'
-import MyClock from '@/components/Clock/MyClock.vue'
-import { defineOptions } from 'unplugin-vue-define-options/macros'
+import CountDown from '@/components/Clock/CountDown.vue';
+import MyClock from '@/components/Clock/MyClock.vue';
+import { defineOptions } from 'unplugin-vue-define-options/macros';
 defineOptions({
     name: 'NewClock',
 })
