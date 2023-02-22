@@ -12,13 +12,14 @@ interface ResultData<T = any> extends Result {
     data?: T;
 }
 
-const URL: string = 'http://pcapi-xiaotuxian-front.itheima.net/'
+// const URL: string = 'http://pcapi-xiaotuxian-front.itheima.net/'
+const URL: string = ''
 
 enum RequestEnums {
     TIMEOUT = 20000,
     OVERDUE = 600, // 登录失效
     FAIL = 999, // 请求失败
-    SUCCESS = 200, // 请求成功
+    SUCCESS = '1', // 请求成功
 }
 
 const config = {
@@ -110,18 +111,22 @@ class RequestHttp {
 
     // 常用方法封装
     get<T>(url: string, params?: object): Promise<ResultData<T>> {
+        url = '/api' + url
         return this.service.get(url, {params});
     }
 
     post<T>(url: string, params?: object): Promise<ResultData<T>> {
+        url = '/api' + url
         return this.service.post(url, params);
     }
 
     put<T>(url: string, params?: object): Promise<ResultData<T>> {
+        url = '/api' + url
         return this.service.put(url, params);
     }
 
     delete<T>(url: string, params?: object): Promise<ResultData<T>> {
+        url = '/api' + url
         return this.service.delete(url, {params});
     }
 }

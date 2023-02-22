@@ -17,3 +17,7 @@ export const login = (params: Login.LoginReqForm) => {
     // 返回的数据格式可以和服务端约定
     return axios.post<Login.LoginResData>('/login', params);
 }
+
+export const testRequest = () => {
+    return axios.get('/home/category/head')
+}

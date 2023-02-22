@@ -2,7 +2,7 @@
 import {useUserStore} from '@/store/user';
 import {onMounted} from 'vue';
 import {useRouter} from 'vue-router';
-import {login} from "@/api/login";
+import {login, testRequest} from "@/api/login";
 
 defineOptions({
     name: 'HomePage',
@@ -14,10 +14,7 @@ const goComponent = (url: string) => {
 const userStore = useUserStore()
 const editName = async () => {
     userStore.updateName('userName')
-    const res = await login({
-        account: 'userName',
-        password: 'userPassword'
-    })
+    const res = await testRequest()
     console.log("🚀 ~ file:HomePage line:21 >>>", res)
 }
 onMounted(() => {

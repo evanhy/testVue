@@ -56,7 +56,14 @@ export default defineConfig(({ mode }: ConfigEnv) => {
             // 允许跨域
             cors: true,
             // 自定义代理规则
-            proxy: {},
+            proxy: {
+                '/api': {
+                    target: 'http://pcapi-xiaotuxian-front.itheima.net/',
+                    ws: true,
+                    changeOrigin: true,
+                    rewrite: path => path.replace(/^\/api/, '')
+                }
+            },
         },
         build: {
             // 设置最终构建的浏览器兼容目标
