@@ -9,14 +9,13 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Clock: typeof import('./../components/Clock/index.vue')['default']
     CountDown: typeof import('./../components/Clock/CountDown.vue')['default']
+    ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElDivider: typeof import('element-plus/es')['ElDivider']
     ElInput: typeof import('element-plus/es')['ElInput']
     MyClock: typeof import('./../components/Clock/MyClock.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-  }
-  export interface ComponentCustomProperties {
-    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
