@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ElMessage } from 'element-plus';
-import { Configuration, OpenAIApi } from 'openai';
+import {ElMessage} from 'element-plus';
+import {Configuration, OpenAIApi} from 'openai';
 
 defineOptions({
     name: 'ProTable',
@@ -26,7 +26,7 @@ let inputContent = ref('')
 const enterInput = () => {
     if (inputContent.value.trim() === '') {
         inputContent.value = ''
-        return ElMessage.warning('请输入内容~')
+        return ElMessage.warning('请输入内容~ \n 555')
     }
     const inputContent2 = JSON.parse(JSON.stringify(inputContent.value))
     inputContent.value = ''
@@ -34,12 +34,14 @@ const enterInput = () => {
         role: 'user',
         content: inputContent2,
     })
-    scrollBottom()
-    // getAi()
+    getAi()
 }
+const apiKey = ref('')
+apiKey.value = 'sk-7ilbUKK5aiElXZVNjAkKT3Bl'
+apiKey.value += 'bkFJpHOtGpcYpOWpHa3xgI8M'
 const getAi = async () => {
     const configuration = new Configuration({
-        apiKey: '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',
+        apiKey: apiKey.value
     })
     const openai = new OpenAIApi(configuration)
 
@@ -51,13 +53,7 @@ const getAi = async () => {
 }
 
 const card = ref(null)
-const scrollBottom = () => {
-    card.value.scrollTo({
-        top: card.value.scrollHeight,
-        behavior: 'smooth',
-    })
-    console.log(card.value.scrollHeight)
-}
+
 </script>
 
 <template>
@@ -78,14 +74,14 @@ const scrollBottom = () => {
                         v-model="inputContent"
                     ></el-input>
                 </div>
-                <br />
+                <br/>
                 <div class="content" v-for="item in QAList">
                     <div>
                         <el-avatar>{{ item.role }}</el-avatar>
                     </div>
-                    <br />
-                    <div v-html="item.content"></div>
-                    <br />
+                    <br/>
+                    <div style="white-space: pre-wrap;" v-html="item.content.replace(/\n/gm, '<br>')"></div>
+                    <br/>
                 </div>
             </el-card>
         </div>
@@ -97,6 +93,7 @@ const scrollBottom = () => {
     display: flex;
     justify-content: center;
 }
+
 .input_box .el-textarea {
     width: 50%;
 }
