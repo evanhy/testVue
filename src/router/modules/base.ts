@@ -14,6 +14,11 @@ export default [
         component: () => import('@/components/Clock/index.vue'),
     },
     {
+        path: '/LeafletMap',
+        name: '/LeafletMap',
+        component: () => import('@/views/LeafletMap/index.vue')
+    },
+    {
         path: '/:catchAll(.*)',
         name: '404',
         component: () => import('@/views/common/404Page.vue'),
