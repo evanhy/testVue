@@ -19,6 +19,11 @@ export default [
         component: () => import('@/views/LeafletMap/index.vue')
     },
     {
+      path: "/markDown",
+        name: "markDown",
+        component: () => import("@/views/MarkDown/index.vue")
+    },
+    {
         path: '/:catchAll(.*)',
         name: '404',
         component: () => import('@/views/common/404Page.vue'),

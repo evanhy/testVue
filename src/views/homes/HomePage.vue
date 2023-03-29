@@ -50,6 +50,8 @@ onMounted(() => {
                    @click="goComponent('proTable')">ChatGPT</a>
                 <a href="#" class="font-medium text-gray-500 hover:text-gray-900 flex items-center"
                    @click="goComponent('LeafletMap')">LeafletMap</a>
+                <a href="#" class="font-medium text-gray-500 hover:text-gray-900 flex items-center"
+                   @click="goComponent('markDown')">MarkDown</a>
                 <!--<a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 flex items-center">Log in</a>-->
             </div>
         </div>
