@@ -40,10 +40,10 @@ class RequestHttp {
         this.service = axios.create(config);
 
         /**
-             * 请求拦截器
-             * 客户端发送请求 -> [请求拦截器] -> 服务器
-             * token校验(JWT) : 接受服务器返回的token,存储到vuex/pinia/本地储存当中
-             */
+         * 请求拦截器
+         * 客户端发送请求 -> [请求拦截器] -> 服务器
+         * token校验(JWT) : 接受服务器返回的token,存储到vuex/pinia/本地储存当中
+         */
         this.service.interceptors.request.use(
             (config: AxiosRequestConfig) => {
                 const token = localStorage.getItem('token') || '';
@@ -61,9 +61,9 @@ class RequestHttp {
         )
 
         /**
-             * 响应拦截器
-             * 服务器换返回信息 -> [拦截统一处理] -> 客户端JS获取到信息
-             */
+         * 响应拦截器
+         * 服务器换返回信息 -> [拦截统一处理] -> 客户端JS获取到信息
+         */
         this.service.interceptors.response.use(
             (response: AxiosResponse) => {
                 const {data, config} = response; // 解构
@@ -71,7 +71,7 @@ class RequestHttp {
                     // 登录信息失效，应跳转到登录页面，并清空本地的token
                     localStorage.setItem('token', '');
                     // router.replace({
-                    //   path: '/login'
+                    //  path: '/login'
                     // })
                     return Promise.reject(data);
                 }
@@ -91,7 +91,7 @@ class RequestHttp {
                     ElMessage.error('网络连接失败');
                     // 可以跳转到错误页面，也可以不做操作
                     // return router.replace({
-                    //   path: '/404'
+                    //  path: '/404'
                     // });
                 }
             }
