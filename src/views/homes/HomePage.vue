@@ -76,6 +76,12 @@ onMounted(() => {
   .el-avatar {
     width: 150px;
     height: 150px;
+    transition: transform 0.3s ease-in-out; /* Add a transition for smooth animation */
+    cursor: pointer;
+  }
+
+  .el-avatar:hover {
+    animation: rotate 0.5s linear infinite;
   }
 }
 </style>
