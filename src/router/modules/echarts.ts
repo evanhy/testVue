@@ -1,7 +1,7 @@
 export default [
     {
-        path: '/echarts',
-        name: 'echarts',
-        component: () => import('@/views/echarts/index.vue')
+        path: '/licensePlateInput',
+        name: 'LicensePlateInput',
+        component: () => import('@/views/licensePlateInput/index.vue')
     }
 ]

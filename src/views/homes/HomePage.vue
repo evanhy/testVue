@@ -47,7 +47,7 @@ onMounted(() => {
         </router-link>
         <router-link
             class="font-medium text-gray-500 hover:text-gray-900 flex items-center"
-            to="/echarts" exact>Echarts
+            to="/licensePlateInput" exact>licensePlateInput
         </router-link>
         <router-link
             class="font-medium text-indigo-600 hover:text-gray-900 flex items-center"
