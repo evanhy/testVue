@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ALink: typeof import('./../components/ALink/index.vue')['default']
     Clock: typeof import('./../components/Clock/index.vue')['default']
     CountDown: typeof import('./../components/Clock/CountDown.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
@@ -16,6 +17,8 @@ declare module '@vue/runtime-core' {
     ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']
     ElDivider: typeof import('element-plus/es')['ElDivider']
     ElInput: typeof import('element-plus/es')['ElInput']
+    Header: typeof import('./../components/layout/Header.vue')['default']
+    Layout: typeof import('./../components/layout/index.vue')['default']
     MyClock: typeof import('./../components/Clock/MyClock.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
