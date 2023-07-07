@@ -1,5 +1,5 @@
-<script setup lang="ts">
-import { useRouter } from 'vue-router';
+<script lang="ts" setup>
+import {useRouter} from 'vue-router';
 
 defineOptions({
     name: 'VueUse',
@@ -8,9 +8,6 @@ const router = useRouter()
 const goVueUse = (routerPath: string, link: string) => {
     router.push(routerPath)
     docLink.value = link
-}
-const goBack = () => {
-    router.push('/')
 }
 const useList = [
     {
@@ -44,27 +41,27 @@ let docLink = ref('https://vueuse.org/')
 
 <template>
     <div class="vue-use">
-        <el-button type="primary" @click="goBack" class="go-back">返回</el-button>
-        <div class="title">
-            <h1>我是VueUse</h1>
+        <div class="text-center py-3">
+            <h1 class="text-4xl mb-3">VueUse</h1>
             &nbsp;
-            <a :href="docLink" target="_blank">查看文档</a>
+            <a :href="docLink" class="border-2 p-1.5 rounded-md inline-block hover:bg-blue-300 hover:text-white"
+               target="_blank">查看文档</a>
         </div>
-        <hr />
-        <div class="body">
-            <div class="body-left">
+        <hr/>
+        <div class="flex">
+            <div class="w-52">
                 <ul>
-                    <li v-for="item in useList">
-                        <el-button
+                    <li v-for="item in useList" class="mb-1">
+                        <evan-button
+                            :type="docLink === item.link ? 'primary' : 'gray'"
                             @click="goVueUse(item.routerPath, item.link)"
-                            :type="docLink === item.link ? 'primary' : 'info'"
                         >
                             {{ item.name }}
-                        </el-button>
+                        </evan-button>
                     </li>
                 </ul>
             </div>
-            <div class="body-right">
+            <div class="flex-1">
                 <router-view></router-view>
             </div>
         </div>
@@ -72,28 +69,6 @@ let docLink = ref('https://vueuse.org/')
 </template>
 
 <style lang="scss" scoped>
-.vue-use {
-    .go-back {
-        position: relative;
-        top: 30px;
-        left: 50px;
-    }
-    .title {
-        text-align: center;
-    }
-    .body {
-        display: flex;
-        &-left {
-            width: 300px;
-            li {
-                margin-bottom: 5px;
-            }
-        }
-        &-rigth {
-            flex: 1;
-        }
-    }
-}
 ::v-deep(.describe) {
     background: #eaddff;
     min-height: 50px;

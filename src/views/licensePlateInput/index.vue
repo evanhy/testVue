@@ -1,37 +1,35 @@
 <template>
-  <div>
-    <div class="go_back" @click="goBack">返回</div>
-    <h1 style="font-size: 24px;font-weight: bold;">车牌号：{{ plateNumbers.join('') }}</h1>
-    <ul>
-      <li :class="{ selected: selectedIndex === 0 }" @click="selectPlateNumber(0)">{{ plateNumbers[0] }}</li>
-      <li :class="{ selected: selectedIndex === 1 }" @click="selectPlateNumber(1)">{{ plateNumbers[1] }}</li>
-      <li class="no_border">·</li>
-      <li :class="{ selected: selectedIndex === 2 }" @click="selectPlateNumber(2)">{{ plateNumbers[2] }}</li>
-      <li :class="{ selected: selectedIndex === 3 }" @click="selectPlateNumber(3)">{{ plateNumbers[3] }}</li>
-      <li :class="{ selected: selectedIndex === 4 }" @click="selectPlateNumber(4)">{{ plateNumbers[4] }}</li>
-      <li :class="{ selected: selectedIndex === 5 }" @click="selectPlateNumber(5)">{{ plateNumbers[5] }}</li>
-      <li :class="{ selected: selectedIndex === 6 }" @click="selectPlateNumber(6)">{{ plateNumbers[6] }}</li>
-    </ul>
-    <div class="Keyboard" v-show="isShowKeyboard">
-      <ul>
-        <template v-if="selectedIndex === 0">
-          <li v-for="number in provinceAbbr" @click="selectNumber(number)">{{ number }}</li>
-          <li class="delete" @click="deleteProvinceAbbr()">删除</li>
-        </template>
-        <template v-else-if="selectedIndex === 1">
-          <li v-for="number in letters" @click="selectNumber(number)">{{ number }}</li>
-          <li class="delete" @click="deleteLetter()">删除</li>
-        </template>
-        <template v-else>
-          <li v-for="number in numbers" @click="selectNumber(number)">{{ number }}</li>
-          <li class="delete" @click="deleteNumber()">删除</li>
-        </template>
-      </ul>
+    <div>
+        <h1 style="font-size: 24px;font-weight: bold;">车牌号：{{ plateNumbers.join('') }}</h1>
+        <ul>
+            <li :class="{ selected: selectedIndex === 0 }" @click="selectPlateNumber(0)">{{ plateNumbers[0] }}</li>
+            <li :class="{ selected: selectedIndex === 1 }" @click="selectPlateNumber(1)">{{ plateNumbers[1] }}</li>
+            <li class="no_border">·</li>
+            <li :class="{ selected: selectedIndex === 2 }" @click="selectPlateNumber(2)">{{ plateNumbers[2] }}</li>
+            <li :class="{ selected: selectedIndex === 3 }" @click="selectPlateNumber(3)">{{ plateNumbers[3] }}</li>
+            <li :class="{ selected: selectedIndex === 4 }" @click="selectPlateNumber(4)">{{ plateNumbers[4] }}</li>
+            <li :class="{ selected: selectedIndex === 5 }" @click="selectPlateNumber(5)">{{ plateNumbers[5] }}</li>
+            <li :class="{ selected: selectedIndex === 6 }" @click="selectPlateNumber(6)">{{ plateNumbers[6] }}</li>
+        </ul>
+        <div class="Keyboard" v-show="isShowKeyboard">
+            <ul>
+                <template v-if="selectedIndex === 0">
+                    <li v-for="number in provinceAbbr" @click="selectNumber(number)">{{ number }}</li>
+                    <li class="delete" @click="deleteProvinceAbbr()">删除</li>
+                </template>
+                <template v-else-if="selectedIndex === 1">
+                    <li v-for="number in letters" @click="selectNumber(number)">{{ number }}</li>
+                    <li class="delete" @click="deleteLetter()">删除</li>
+                </template>
+                <template v-else>
+                    <li v-for="number in numbers" @click="selectNumber(number)">{{ number }}</li>
+                    <li class="delete" @click="deleteNumber()">删除</li>
+                </template>
+            </ul>
+        </div>
     </div>
-  </div>
 </template>
 <script setup lang="ts">
-import {ref, watchEffect} from 'vue'
 
 defineOptions({
     name: "licensePlateInput"
@@ -111,67 +109,64 @@ watchEffect(() => {
 })
 // 返回首页
 const router = useRouter()
-const goBack = () => {
-    router.push('/')
-}
 </script>
 
 <style scoped lang="scss">
 .go_back {
-  border: 1px solid #9d9696;
-  width: 50px;
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
-  cursor: pointer;
+    border: 1px solid #9d9696;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
 }
 
 ul {
-  display: flex;
+    display: flex;
 
-  li {
-    border: 1px solid #000;
-    border-radius: 5px;
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 100px;
+    li {
+        border: 1px solid #000;
+        border-radius: 5px;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 100px;
 
-    &.selected {
-      background-color: #f2f2f2;
+        &.selected {
+            background-color: #f2f2f2;
+        }
     }
-  }
 
-  .no_border {
-    border: none;
-  }
+    .no_border {
+        border: none;
+    }
 }
 
 .Keyboard {
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
-    li {
-      border: 1px solid #000;
-      border-radius: 5px;
-      width: 60px;
-      height: 60px;
-      margin: 10px;
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      line-height: 60px;
-      cursor: pointer;
+        li {
+            border: 1px solid #000;
+            border-radius: 5px;
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 60px;
+            cursor: pointer;
 
-      &.delete {
-        width: 140px;
-      }
+            &.delete {
+                width: 140px;
+            }
+        }
     }
-  }
 }
 </style>

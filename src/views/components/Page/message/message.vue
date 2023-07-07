@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 
 defineOptions({
     name: "Message"
@@ -12,22 +12,10 @@ onMounted(() => {
 
 <template>
     <transition>
-        <div class="p-8" v-show="show">
+        <div v-show="show" class="p-8">
             <h1 class="text-5xl text-rose-400 mb-3">
                 Message
             </h1>
         </div>
     </transition>
 </template>
-
-<style scoped lang="scss">
-.v-enter-active,
-.v-leave-active {
-    transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-    opacity: 0;
-}
-</style>

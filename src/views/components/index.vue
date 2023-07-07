@@ -1,23 +1,33 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 defineOptions({
     name: "Components"
 });
+
+const components = [
+    {
+        name: "Button",
+        path: "/components/button",
+    },
+    {
+        name: "Confirm",
+        path: "/components/confirm",
+    },
+    {
+        name: "Message",
+        path: "/components/message",
+    },
+];
+
 </script>
 <template>
     <div class="my_components">
         <header>
-            <router-link to="/" class="back">Back</router-link>
+            <router-link class="back" to="/">Back</router-link>
         </header>
         <div class="container">
             <ul>
-                <li>
-                    <router-link to="/components/button">Button</router-link>
-                </li>
-                <li>
-                    <router-link to="/components/confirm">Confirm</router-link>
-                </li>
-                <li>
-                    <router-link to="/components/message">Message</router-link>
+                <li v-for="item in components" :key="item.name">
+                    <a-link :to="item.path">{{ item.name }}</a-link>
                 </li>
             </ul>
             <div class="main">
@@ -26,7 +36,7 @@ defineOptions({
         </div>
     </div>
 </template>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .my_components {
     .router-link-exact-active {
         color: #1f6bdf;
@@ -52,8 +62,7 @@ defineOptions({
         display: flex;
 
         ul {
-            width: 200px;
-            height: calc(100vh - 50px);
+            height: calc(100vh - 100px);
             background-color: #e6f7ff;
 
             li {
@@ -64,6 +73,7 @@ defineOptions({
                 align-items: center;
                 background-color: #f5f5f5;
                 border-bottom: 1px solid #e6e6e6;
+                padding: 0 20px;
 
                 &:hover {
                     background-color: #e6f7ff;
@@ -76,6 +86,16 @@ defineOptions({
             height: 100%;
             background-color: #fff;
         }
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+        transition: opacity 0.5s ease;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+        opacity: 0;
     }
 }
 

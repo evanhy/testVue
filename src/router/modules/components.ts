@@ -2,6 +2,7 @@ export default [
     {
         path: "/components",
         name: "Components",
+        redirect: "/components/confirm",
         component: () => import("@/views/components/index.vue"),
         children: [
             {
