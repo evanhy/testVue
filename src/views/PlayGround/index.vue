@@ -1,28 +1,25 @@
 <template>
-    <div class="play-ground">
-        <div class=" md:mx-auto relative bg-white overflow-hidden border-b">
-            <div class="h-12 md:ml-10 md:pr-4 md:space-x-8 flex justify-center ">
-                <router-link
-                    class="font-medium text-gray-500 hover:text-gray-900 flex items-center"
-                    to="/">Home
-                </router-link>
-                <router-link
-                    class="font-medium text-gray-500 hover:text-gray-900 flex items-center"
-                    to="/video" exact>Video
-                </router-link>
-            </div>
-        </div>
-        <router-view></router-view>
+  <div class="text-base">
+    <h1 class="text-center text-4xl my-3">PlayGround</h1>
+    <div class="bg-cyan-50 min-h-[300px]">      
+      <p>图片预览</p>
+      <img src="https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg" alt="" class="w-52 h-52 cursor-pointer" @click="showImg = true" />
+
+      <div v-show="showImg" class="grid place-items-center w-[100vw] h-[100vh] fixed top-0 left-0 bg-black bg-opacity-50" @click.self="showImg = false">
+        <img src="https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg" alt="" class="w-[80vw] h-[80vh] cursor-pointer" />
+      </div>
+
+      <p>自定义指令实现图片预览</p>
+      <img src="https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg" v-image-preview alt="" class="w-52 h-52 cursor-pointer" />
+
+      <router-view></router-view>
     </div>
+  </div>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
 
 defineOptions({
-    name: "PlayGround"
+  name: "PlayGround",
 })
+const showImg = ref(false)
 </script>
-<style lang="scss" scoped>
-.play-ground {
-    font-size: 18px;
-}
-</style>
