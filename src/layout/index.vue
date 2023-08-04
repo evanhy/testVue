@@ -9,25 +9,8 @@ defineOptions({
 <template>
     <div class="pt-12">
         <Header></Header>
-        <transition name="fade">
-            <router-view></router-view>
-        </transition>
+        <router-view v-slot="{Component}">
+            <component :is="Component"></component>
+        </router-view>
     </div>
 </template>
-
-<style scoped>
-.fade-enter-from,
-.fade-leave-to {
-    opacity: 0;
-}
-
-.fade-enter-to,
-.fade-leave-from {
-    opacity: 1;
-}
-
-.fade-leave-active, .fade-enter-active {
-    transition: all 0.5s ease-out;
-}
-
-</style>

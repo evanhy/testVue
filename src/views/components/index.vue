@@ -21,9 +21,6 @@ const components = [
 </script>
 <template>
     <div class="my_components">
-        <header>
-            <router-link class="back" to="/">Back</router-link>
-        </header>
         <div class="container">
             <ul>
                 <li v-for="item in components" :key="item.name">
@@ -42,21 +39,6 @@ const components = [
         color: #1f6bdf;
     }
 
-    header {
-        height: 50px;
-        line-height: 50px;
-        padding: 0 50px;
-        background-color: #fff;
-        border-bottom: 1px solid #e6e6e6;
-
-        .back {
-            color: #8c8c8c;
-
-            &:hover {
-                color: #1f6bdf;
-            }
-        }
-    }
 
     .container {
         display: flex;

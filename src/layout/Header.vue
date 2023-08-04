@@ -2,6 +2,7 @@
 defineOptions({
     name: "Header",
 })
+
 </script>
 
 <template>
@@ -15,7 +16,6 @@ defineOptions({
             <a-link to="/components">Components</a-link>
             <a-link to="/vueuse">vueUse</a-link>
             <a-link to="/vueDraggable">vueDraggable</a-link>
-            <a-link to="/licensePlateInput">licensePlateInput</a-link>
             <a-link to="/playground">演练场</a-link>
         </div>
     </div>

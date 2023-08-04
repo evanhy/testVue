@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import EvanLayout from "./layout/index.vue"
+import EvanLayout from "@/layout/index.vue"
 </script>
 
 <style lang="scss" scoped>
