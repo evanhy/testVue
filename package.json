@@ -20,7 +20,7 @@
     "normalize.css": "^8.0.1",
     "pinia": "^2.0.30",
     "pinia-plugin-persist": "^1.0.0",
-    "vue": "^3.2.45",
+    "vue": "^3.3.13",
     "vue-router": "^4.0.13",
     "vuedraggable": "^4.1.0"
   },
