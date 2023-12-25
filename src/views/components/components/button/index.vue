@@ -1,4 +1,6 @@
 <script lang="ts" name="XtxButton" setup>
+import { PropType } from 'vue';
+
 
 defineProps({
     size: {
