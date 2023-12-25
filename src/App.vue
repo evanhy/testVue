@@ -6,6 +6,10 @@
 
 <script setup lang="ts">
 import EvanLayout from "@/layout/index.vue"
+
+onMounted(() => {
+  
+})
 </script>
 
 <style lang="scss" scoped>

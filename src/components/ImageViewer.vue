@@ -1,6 +1,6 @@
 <template>
   <div v-if="show" 
-    class="image-viewer fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.5)] flex justify-center items-center" 
+    class="image-viewer fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.5)] flex justify-center items-center z-10" 
     @click="hide" 
     @wheel="onWheel"
   >
@@ -18,6 +18,7 @@ defineProps({
 
 // 控制显示
 const show = ref(false)
+
 // 缩放比例
 const scale = ref(1)
 
@@ -34,13 +35,13 @@ const imgStyle = computed(() => {
   }
 })
 
-// 显示
+// 隐藏
 const hide = () => {
   show.value = false
   resetTransformations()
 }
 
-// 隐藏
+// 显示
 const showImage = () => {
   show.value = true
 }
