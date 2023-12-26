@@ -39,6 +39,9 @@ onMounted(() => {
             <evan-button size="large">
                 large
             </evan-button>
+            <evan-button>
+                Default
+            </evan-button>
         </div>
     </Transition>
 </template>

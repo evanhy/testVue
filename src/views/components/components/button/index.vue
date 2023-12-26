@@ -14,14 +14,14 @@ defineProps({
 })
 </script>
 <template>
-    <button :class="[size, type]" class="xtx-button ellipsis">
+    <button :class="[size, type]" class="evan-button ellipsis">
         <slot/>
     </button>
 </template>
 
 <style lang="scss" scoped>
 $xtxColor: #22D3EE;
-.xtx-button {
+.evan-button {
     appearance: none;
     outline: none;
     background: #fff;

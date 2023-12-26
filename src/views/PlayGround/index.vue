@@ -48,6 +48,9 @@ onMounted(() => {
 
 <template>
   <div class="p-5">
+    <el-button type="primary">
+      primary
+    </el-button>
     <div class="box w-20 h-20 bg-pink-100 rounded"></div>
     <div class="grid grid-cols-4 gap-4 m-4">
       <div class="bg-blue-500">

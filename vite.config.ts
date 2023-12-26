@@ -3,7 +3,6 @@ import {resolve} from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
-import defineOptions from 'unplugin-vue-define-options/dist/vite'
 import type {ConfigEnv} from 'vite'
 import {defineConfig, loadEnv} from 'vite'
 // https://vitejs.dev/config/
@@ -21,7 +20,6 @@ export default defineConfig(({mode}: ConfigEnv) => {
         /* more config */
         plugins: [
             vue(),
-            defineOptions(),
             AutoImport({
                 resolvers: [],
                 // 自定引入 Vue VueRouter API,如果还需要其他的可以自行引入
