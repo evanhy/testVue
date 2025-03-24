@@ -2,6 +2,6 @@ export default [
     {
         path: "/playground",
         name: "Playground",
-        component: () => import("@/views/PlayGround/index.vue"),
+        component: () => import("@/views/PlayGround/index.vue")
     }
 ]

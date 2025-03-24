@@ -1,20 +1,20 @@
 <template>
-  <div id="app">
-    <evan-layout> </evan-layout>
-  </div>
+    <div id="app">
+        <evan-layout></evan-layout>
+    </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import EvanLayout from "@/layout/index.vue"
 
 onMounted(() => {
-  
+
 })
 </script>
 
 <style lang="scss" scoped>
 #app {
-  width: 100vw;
-  height: 100vh;
+    width: 100vw;
+    height: 100vh;
 }
 </style>
