@@ -9,8 +9,13 @@ export default [
     },
   },
   {
+    path: "/playground",
+    name: "Playground",
+    component: () => import("@/views/playground/index.vue"),
+  },
+  {
     path: "/:catchAll(.*)",
     name: "404",
     component: () => import("@/views/common/404Page.vue"),
   },
-]
+];
