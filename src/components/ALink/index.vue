@@ -28,7 +28,7 @@ defineProps({
 </template>
 
 <style lang="scss" scoped>
-@import "@/css/base.scss";
+@import "@/styles/base.scss";
 
 .router-link-exact-active {
   color: $primary-color;

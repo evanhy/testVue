@@ -1,0 +1,47 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# 项目简介
+
+- 这是一个基于 Vue 3 和 Vite 构建的个人项目
+
+# 技术架构
+
+- 使用 Vue 3 的 Composition API 进行开发。
+- 使用 Vite 进行构建。
+- 使用 TypeScript 进行开发。
+
+# 目录结构
+
+- 项目结构如下：
+
+- src/ 应用主目录
+  - components/ 组件目录
+  - assets/ 资源目录
+  - App.vue 应用主组件
+  - main.ts 应用入口文件
+  - router/ 路由目录
+  - store/ 状态管理目录
+  - utils/ 工具函数目录
+  - views/ 视图目录
+
+# 命名规范
+
+- 组件命名：使用 PascalCase 命名。
+- 文件命名：使用 PascalCase 命名。
+- 变量命名：使用 camelCase 命名。
+- 常量命名：使用 UPPER_CASE 命名。
+- 函数命名：使用 camelCase 命名。
+
+# 组件规范
+
+- 使用 Vue 3 的 Composition API 进行开发。
+- 组件需要添加注释，注释需要包含组件名称、功能描述、参数说明、返回值说明。
+- 组件需要添加 defineOptions 配置。
+- 通用组件直接放在 components 目录下。
+
+# 样式规范
+
+- 使用 Scss + tailwind 进行样式开发。
